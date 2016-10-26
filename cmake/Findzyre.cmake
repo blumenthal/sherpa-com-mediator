@@ -25,6 +25,7 @@ find_path (
     ZYRE_INCLUDE_DIRS
     NAMES zyre.h
     HINTS ${PC_ZYRE_INCLUDE_HINTS}
+    ENV{ZYRE_ROOT}/include
 )
 
 find_library (

@@ -638,6 +638,8 @@ void handle_local_shout(mediator_t *self, zmsg_t *msg) {
 				printf ("[%s] Could not generate remote peer list! \n", self->shortname);
 			}
 			zstr_free(&peerlist);
+		} else if (streq (result->type, "RSGUpdate_global")) { // same as send_request
+			send_remote(self, result, self->remotegroup);
 		} else if (streq (result->type, "send_request")) {
 			// query for communication
 			send_remote(self, result, self->remotegroup);
